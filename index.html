@@ -603,40 +603,31 @@ tr:hover td { background: var(--surface2); }
   .main { margin-left: 0; }
   .sb-hamburger { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; cursor: pointer; border: none; background: none; font-size: 20px; }
 
-  /* ── Topbar hero: compactar no mobile ── */
-  .topbar { padding: 0 !important; }
-  .hero-inner { padding: 12px 14px !important; }
-  .hero-inner > div:first-child { gap: 10px !important; }
+  /* ── TOPBAR: ocultar tudo exceto hamburger + logo ── */
+  #topbar-divider { display: none !important; }
+  #topbar-title-block { display: none !important; }
   .hero-inner > div:last-child { display: none !important; }
+  .topbar-hero-band { padding: 10px 14px !important; }
 
-  /* Esconde divisor vertical no mobile */
-  .hero-inner [style*="width:1px;height:36px"] { display: none !important; }
-
-  /* Logo menor no mobile */
-  .hero-inner svg { width: 28px !important; height: 28px !important; }
-  .hero-inner [style*="font-size:17px"] { font-size: 14px !important; }
-  .hero-inner [style*="font-size:10px"] { display: none !important; }
-
-  /* Título do portal no topbar: esconde no mobile (já tem no hero) */
-  .hero-inner [style*="font-size:16px;font-weight:700"] { display: none !important; }
-
-  /* ── Hero da página inicial: menos padding ── */
-  #page-inicio > div:first-child { padding: 20px 14px 18px !important; }
-  #page-inicio > div:first-child [style*="font-size:clamp"] { font-size: 24px !important; letter-spacing: -0.5px !important; }
-  #page-inicio > div:first-child [style*="font-size:15px"] { font-size: 13px !important; }
-  #page-inicio > div:first-child [style*="margin-bottom:16px"] { margin-bottom: 10px !important; }
-  #page-inicio > div:first-child [style*="margin-bottom:12px"] { margin-bottom: 8px !important; }
-
-  /* ── Breadcrumb ── */
+  /* ── Breadcrumb compacto ── */
   .topbar [style*="padding:5px 24px"] { padding: 4px 14px !important; }
 
-  /* ── Content ── */
-  .content, .content-wide { padding: 12px 12px !important; }
+  /* ── Hero início: compacto ── */
+  .inicio-hero-band { padding: 20px 14px 16px !important; }
+  .inicio-hero-band [style*="font-size:clamp"] { font-size: 22px !important; letter-spacing: -0.5px !important; line-height: 1.2 !important; }
+  .inicio-hero-band [style*="font-size:15px"] { font-size: 13px !important; line-height: 1.5 !important; }
+  .inicio-hero-band [style*="margin-bottom:16px"] { margin-bottom: 8px !important; }
+  .inicio-hero-band [style*="margin-bottom:12px"] { margin-bottom: 8px !important; }
 
-  /* ── Stats grid: 2 colunas no mobile ── */
-  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-  .stat-card { padding: 12px 14px !important; }
-  .stat-card h2 { font-size: 26px !important; }
+  /* ── Content ── */
+  .content, .content-wide { padding: 12px !important; }
+
+  /* ── Stats grid: 1 coluna no mobile (resolve texto cortado) ── */
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .stat-card { padding: 10px 12px !important; }
+  .stat-label { font-size: 10px !important; letter-spacing: 0 !important; white-space: normal !important; }
+  .stat-value { font-size: 20px !important; }
+  .stat-sub { font-size: 10px !important; }
 
   /* ── Dash grid ── */
   .dash-grid { grid-template-columns: 1fr; }
@@ -668,9 +659,6 @@ tr:hover td { background: var(--surface2); }
     grid-template-columns: repeat(2, 1fr) !important;
   }
 
-  /* ── "Como funciona" steps ── */
-  [style*="display:flex;gap:6px;overflow-x:auto"] { gap: 4px !important; }
-
   /* ── Footer ── */
   .footer-main-grid { grid-template-columns: 1fr !important; gap: 20px !important; text-align: center; }
 
@@ -683,7 +671,7 @@ tr:hover td { background: var(--surface2); }
   .mural-item { flex-direction: column; gap: 8px; }
   .accord-header { font-size: 13px; }
 
-  /* ── Funcionário do mês: compactar ── */
+  /* ── Funcionário do mês ── */
   #page-inicio [style*="padding:20px;text-align:center"] { padding: 14px !important; }
 }
 
@@ -694,15 +682,8 @@ tr:hover td { background: var(--surface2); }
 .hero-inner { max-width: 1260px; }
 @media (max-width: 768px) { .footer-main-grid { grid-template-columns: 1fr !important; gap: 20px !important; } }
 @media (max-width: 768px) { .vitrine-card-grid { grid-template-columns: repeat(2,1fr) !important; } }
-@media (max-width: 768px) { .hero-inner { gap: 8px !important; } .hero-inner > div:last-child { display: none; } }
-@media (max-width: 768px) {
-  .topbar-hero-band { padding: 10px 14px !important; }
-  .inicio-hero-band { padding: 20px 14px 16px !important; }
-  .inicio-hero-band [style*="font-size:clamp"] { font-size: 22px !important; letter-spacing: -0.5px !important; line-height: 1.2 !important; }
-  .inicio-hero-band [style*="font-size:15px"] { font-size: 13px !important; line-height: 1.5 !important; }
-  .inicio-hero-band [style*="margin-bottom:16px"] { margin-bottom: 8px !important; }
-  .inicio-hero-band [style*="margin-bottom:12px"] { margin-bottom: 8px !important; }
-}
+/* hero-inner handled in main 768px block */
+/* inicio-hero-band handled in main 768px block */
 
 @media (max-width: 420px) { .vitrine-card-grid { grid-template-columns: 1fr !important; } }
 @media (max-width: 420px) {
@@ -840,10 +821,10 @@ tr:hover td { background: var(--surface2); }
           </div>
 
           <!-- Divisor -->
-          <div style="width:1px;height:36px;background:rgba(255,255,255,.12);flex-shrink:0"></div>
+          <div id="topbar-divider" style="width:1px;height:36px;background:rgba(255,255,255,.12);flex-shrink:0"></div>
 
           <!-- Título da página -->
-          <div>
+          <div id="topbar-title-block">
             <div style="font-size:16px;font-weight:700;color:#f1f5f9;letter-spacing:-.2px;line-height:1.2">Gestão de RH e Custos</div>
             <div style="font-size:11px;color:rgba(255,255,255,.38);font-weight:400;margin-top:2px">Portal de Demonstração Interativa com Automação e BI</div>
           </div>
