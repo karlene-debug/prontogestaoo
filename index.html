@@ -601,30 +601,64 @@ tr:hover td { background: var(--surface2); }
   .sidebar { transform: translateX(-100%); transition: transform .2s; }
   .sidebar.open { transform: translateX(0); }
   .main { margin-left: 0; }
-  .sb-hamburger { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; cursor: pointer; border: none; background: none; font-size: 18px; }
+  .sb-hamburger { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; cursor: pointer; border: none; background: none; font-size: 20px; }
 
-  /* ── Topbar ── */
+  /* ── Topbar hero: compactar no mobile ── */
   .topbar { padding: 0 !important; }
+  .hero-inner { padding: 12px 14px !important; }
+  .hero-inner > div:first-child { gap: 10px !important; }
+  .hero-inner > div:last-child { display: none !important; }
+
+  /* Esconde divisor vertical no mobile */
+  .hero-inner [style*="width:1px;height:36px"] { display: none !important; }
+
+  /* Logo menor no mobile */
+  .hero-inner svg { width: 28px !important; height: 28px !important; }
+  .hero-inner [style*="font-size:17px"] { font-size: 14px !important; }
+  .hero-inner [style*="font-size:10px"] { display: none !important; }
+
+  /* Título do portal no topbar: esconde no mobile (já tem no hero) */
+  .hero-inner [style*="font-size:16px;font-weight:700"] { display: none !important; }
+
+  /* ── Hero da página inicial: menos padding ── */
+  #page-inicio > div:first-child { padding: 20px 14px 18px !important; }
+  #page-inicio > div:first-child [style*="font-size:clamp"] { font-size: 24px !important; letter-spacing: -0.5px !important; }
+  #page-inicio > div:first-child [style*="font-size:15px"] { font-size: 13px !important; }
+  #page-inicio > div:first-child [style*="margin-bottom:16px"] { margin-bottom: 10px !important; }
+  #page-inicio > div:first-child [style*="margin-bottom:12px"] { margin-bottom: 8px !important; }
+
+  /* ── Breadcrumb ── */
+  .topbar [style*="padding:5px 24px"] { padding: 4px 14px !important; }
 
   /* ── Content ── */
-  .content, .content-wide { padding: 12px; }
+  .content, .content-wide { padding: 12px 12px !important; }
 
-  /* ── Grids ── */
+  /* ── Stats grid: 2 colunas no mobile ── */
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .stat-card { padding: 12px 14px !important; }
+  .stat-card h2 { font-size: 26px !important; }
+
+  /* ── Dash grid ── */
   .dash-grid { grid-template-columns: 1fr; }
+
+  /* ── KPI ── */
   .kpi-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .kpi-card h2 { font-size: 22px !important; }
+
+  /* ── Forms ── */
   .form-grid { grid-template-columns: 1fr; }
+  iframe { width: 100% !important; min-height: 500px; }
+
+  /* ── Cultura/valores ── */
   .valores-grid { grid-template-columns: 1fr; gap: 8px; }
   .dress-grid { grid-template-columns: 1fr; }
   .quick-access { grid-template-columns: 1fr; }
 
-  /* ── Formulários: iframes ── */
-  iframe { width: 100% !important; min-height: 520px; }
-
-  /* ── Tabs: esconde texto longo ── */
-  .tab-btn { font-size: 12px !important; padding: 7px 10px !important; }
+  /* ── Tabs ── */
+  .tab-btn { font-size: 11px !important; padding: 6px 9px !important; white-space: nowrap; }
 
   /* ── Vitrine: cards 2 colunas no mobile ── */
+  .vitrine-card-grid,
   [style*="grid-template-columns:repeat(4,1fr)"],
   [style*="grid-template-columns: repeat(4, 1fr)"] {
     grid-template-columns: repeat(2, 1fr) !important;
@@ -634,43 +668,42 @@ tr:hover td { background: var(--surface2); }
     grid-template-columns: repeat(2, 1fr) !important;
   }
 
+  /* ── "Como funciona" steps ── */
+  [style*="display:flex;gap:6px;overflow-x:auto"] { gap: 4px !important; }
+
   /* ── Footer ── */
-  [style*="grid-template-columns:auto 1fr auto"],
-  [style*="grid-template-columns: auto 1fr auto"] {
-    grid-template-columns: 1fr !important;
-    gap: 20px !important;
-    text-align: center;
-  }
+  .footer-main-grid { grid-template-columns: 1fr !important; gap: 20px !important; text-align: center; }
 
-  /* ── Flow hero topbar ── */
-  [style*="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;max-width:1260px"] {
-    flex-direction: column;
-    align-items: flex-start !important;
-  }
+  /* ── PSI ── */
+  .psi-card-head { flex-direction: column; align-items: flex-start !important; gap: 8px !important; }
 
-  /* ── PSI contador ── */
-  .psi-card-head { flex-direction: column; align-items: flex-start !important; }
-
-  /* ── KPI cards texto ── */
-  .kpi-card h2 { font-size: 24px !important; }
-
-  /* ── Página título e desc ── */
-  .page-title { font-size: 16px !important; }
+  /* ── Misc ── */
+  .page-title { font-size: 15px !important; }
   .page-desc { font-size: 12px !important; }
-
-  /* ── Mural comunicados ── */
   .mural-item { flex-direction: column; gap: 8px; }
-
-  /* ── Accordion ── */
   .accord-header { font-size: 13px; }
+
+  /* ── Funcionário do mês: compactar ── */
+  #page-inicio [style*="padding:20px;text-align:center"] { padding: 14px !important; }
 }
 
 .footer-main-grid { grid-template-columns: auto 1fr auto; }
 .vitrine-card-grid { display:grid; gap:12px; margin-bottom:16px; }
+.topbar-hero-band { }
+.inicio-hero-band { }
 .hero-inner { max-width: 1260px; }
 @media (max-width: 768px) { .footer-main-grid { grid-template-columns: 1fr !important; gap: 20px !important; } }
 @media (max-width: 768px) { .vitrine-card-grid { grid-template-columns: repeat(2,1fr) !important; } }
 @media (max-width: 768px) { .hero-inner { gap: 8px !important; } .hero-inner > div:last-child { display: none; } }
+@media (max-width: 768px) {
+  .topbar-hero-band { padding: 10px 14px !important; }
+  .inicio-hero-band { padding: 20px 14px 16px !important; }
+  .inicio-hero-band [style*="font-size:clamp"] { font-size: 22px !important; letter-spacing: -0.5px !important; line-height: 1.2 !important; }
+  .inicio-hero-band [style*="font-size:15px"] { font-size: 13px !important; line-height: 1.5 !important; }
+  .inicio-hero-band [style*="margin-bottom:16px"] { margin-bottom: 8px !important; }
+  .inicio-hero-band [style*="margin-bottom:12px"] { margin-bottom: 8px !important; }
+}
+
 @media (max-width: 420px) { .vitrine-card-grid { grid-template-columns: 1fr !important; } }
 @media (max-width: 420px) {
   .stats-grid { grid-template-columns: 1fr; }
@@ -776,7 +809,7 @@ tr:hover td { background: var(--surface2); }
   <div class="topbar" style="height:auto;flex-direction:column;align-items:stretch;padding:0">
 
     <!-- ── FAIXA HERO ── -->
-    <div style="background:linear-gradient(135deg,#0f172a 0%,#1a2d4a 45%,#1e3a5f 100%);padding:20px 24px;position:relative;overflow:hidden">
+    <div class="topbar-hero-band" style="background:linear-gradient(135deg,#0f172a 0%,#1a2d4a 45%,#1e3a5f 100%);padding:20px 24px;position:relative;overflow:hidden">
       <!-- Decoração sutil de fundo -->
       <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:36px 36px;pointer-events:none"></div>
       <!-- Brilho direito -->
@@ -840,7 +873,7 @@ tr:hover td { background: var(--surface2); }
   <div class="page active" id="page-inicio">
 
     <!-- HERO BANNER -->
-    <div style="background:linear-gradient(135deg,#0f172a 0%,#1a2d4a 50%,#1e3a5f 100%);padding:40px 24px 36px;position:relative;overflow:hidden;margin-bottom:0">
+    <div class="inicio-hero-band" style="background:linear-gradient(135deg,#0f172a 0%,#1a2d4a 50%,#1e3a5f 100%);padding:40px 24px 36px;position:relative;overflow:hidden;margin-bottom:0">
       <!-- Grid de fundo -->
       <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none"></div>
       <!-- Brilho laranja -->
