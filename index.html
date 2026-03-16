@@ -622,12 +622,33 @@ tr:hover td { background: var(--surface2); }
   /* ── Content ── */
   .content, .content-wide { padding: 12px !important; }
 
-  /* ── Stats grid: 1 coluna no mobile (resolve texto cortado) ── */
+  /* ── Stats grid: 2 colunas sem texto cortado ── */
   .stats-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
-  .stat-card { padding: 10px 12px !important; }
-  .stat-label { font-size: 10px !important; letter-spacing: 0 !important; white-space: normal !important; }
+  .stat-card { padding: 10px 10px !important; min-width: 0 !important; overflow: hidden; }
+
+  /* Label: sem uppercase/letter-spacing para caber */
+  .stat-label {
+    font-size: 10px !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    font-weight: 700 !important;
+  }
+
+  /* Badge inline: esconde no mobile para não empurrar o layout */
+  .stat-card [style*="border-radius:10px"][style*="padding:1px 6px"] { display: none !important; }
+
+  /* Badge "Alto" com fundo redondo maior: também esconde */
+  .stat-card span[style*="border-radius:10px"] { display: none !important; }
+
   .stat-value { font-size: 20px !important; }
-  .stat-sub { font-size: 10px !important; }
+  .stat-sub { font-size: 10px !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  /* Hero descrição: não vaza para fora */
+  .inicio-hero-band [style*="max-width:560px"] { max-width: 100% !important; overflow: hidden !important; }
+  .inicio-hero-band [style*="font-size:15px"] { font-size: 12.5px !important; line-height: 1.5 !important; max-width: 100% !important; }
 
   /* ── Dash grid ── */
   .dash-grid { grid-template-columns: 1fr; }
