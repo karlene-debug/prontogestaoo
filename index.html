@@ -284,9 +284,13 @@ body { font-family: var(--font); background: var(--bg); color: var(--ink); displ
 /* ═══ STATS GRID ═══ */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 12px;
   margin-bottom: 20px;
+}
+/* stat-wide SEMPRE ocupa linha inteira */
+.stat-wide {
+  grid-column: 1 / -1;
 }
 .stat-card {
   background: var(--surface);
@@ -622,18 +626,14 @@ tr:hover td { background: var(--surface2); }
   /* ── Content ── */
   .content, .content-wide { padding: 12px !important; }
 
-  /* ── Stats grid: 2 colunas no mobile (igual kpi-grid) ── */
-  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-  .stat-card { padding: 12px 12px !important; min-width: 0 !important; overflow: hidden; }
-  .stat-label { font-size: 10px !important; letter-spacing: 0 !important; white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis !important; }
+  /* ── Stats grid mobile ── */
+  .stat-card { padding: 12px 10px !important; }
+  .stat-label { font-size: 10px !important; letter-spacing: 0 !important; }
   .stat-value { font-size: 20px !important; }
-  .stat-sub { font-size: 10px !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .stat-sub { font-size: 10px !important; }
+}
 
-  /* Esconde badges coloridos dentro dos stat-cards no mobile */
-  .stat-card span[style*="border-radius:10px"] { display: none !important; }
-
-  /* Hero descrição: limita largura */
-  .inicio-hero-band [style*="font-size:15px"] { font-size: 12.5px !important; line-height: 1.5 !important; }
+/* stat-wide já tratado no CSS base */
 
   /* ── Dash grid ── */
   .dash-grid { grid-template-columns: 1fr; }
@@ -884,7 +884,7 @@ tr:hover td { background: var(--surface2); }
     <div class="content">
 
       <!-- ── STATS COM FAROL ── -->
-      <div class="stats-grid" style="margin-top:4px">
+      <div class="stats-grid" style="margin-top:4px;width:100%;box-sizing:border-box">
 
         <!-- Colaboradores -->
         <div class="stat-card" style="border-top:3px solid #0969da">
@@ -909,16 +909,13 @@ tr:hover td { background: var(--surface2); }
 
         <!-- eNPS — verde (meta: ≥70%) -->
         <div class="stat-card" style="border-top:3px solid #1a7f37">
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2px">
-            <div class="stat-label" style="margin-bottom:0">eNPS Satisfação</div>
-            <span style="font-size:10px;font-weight:700;background:#dcfce7;color:#1a7f37;padding:1px 6px;border-radius:10px">✅ Ótimo</span>
-          </div>
+          <div class="stat-label" style="margin-bottom:6px">eNPS Satisfação</div>
           <div class="stat-value" style="color:#1a7f37">87%</div>
-          <div class="stat-sub" style="color:#1a7f37">↑ 5 pts este mês · meta ≥70%</div>
+          <div class="stat-sub" style="color:#1a7f37">↑ 5 pts este mês</div>
         </div>
 
         <!-- Turnover — vermelho (meta: ≤5%) -->
-        <div class="stat-card" style="border-top:3px solid #cf222e">
+        <div class="stat-card stat-wide" style="border-top:3px solid #cf222e">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2px">
             <div class="stat-label" style="margin-bottom:0">Turnover Mensal</div>
             <span style="font-size:10px;font-weight:700;background:#ffeef0;color:#cf222e;padding:1px 6px;border-radius:10px">🔴 Alto</span>
@@ -928,7 +925,7 @@ tr:hover td { background: var(--surface2); }
         </div>
 
         <!-- Absenteísmo — amarelo (meta: ≤3%) -->
-        <div class="stat-card" style="border-top:3px solid #9a6700">
+        <div class="stat-card stat-wide" style="border-top:3px solid #9a6700">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2px">
             <div class="stat-label" style="margin-bottom:0">Absenteísmo</div>
             <span style="font-size:10px;font-weight:700;background:#fff8c5;color:#9a6700;padding:1px 6px;border-radius:10px">🟡 Atenção</span>
